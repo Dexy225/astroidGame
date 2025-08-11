@@ -3,14 +3,14 @@ from constants import *
 
 def main():
     pygame.init()
+
     print("Starting Asteroids!")
-    print(f"Screen width: {SCREEN_WIDTH}")
-    print(f"Screen height: {SCREEN_HEIGHT}")
+
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
-
-
     run = True
+    clock = pygame.time.Clock()
+    dt = 0
+
 
     while run == True:
 
@@ -18,7 +18,11 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        pygame.Surface.fill(screen, (255,255,255))
+        pygame.Surface.fill(screen, (0,0,0))
+
+        clock.tick(60)
+        dt = clock.tick(60) / 1000
+
         pygame.display.update()
         
 
