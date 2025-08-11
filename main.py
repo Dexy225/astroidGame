@@ -1,8 +1,10 @@
 import pygame
+import sys
 from constants import *
 from player import *
 from asteroid import *
 from asteroidField import *
+from circleshape import *
 
 def main():
     pygame.init()
@@ -40,10 +42,17 @@ def main():
         clock.tick(60)
         dt = clock.tick(60) / 1000
 
+
+
         updatable.update(dt)
 
         for sprite in drawable:
             sprite.draw(screen)
+
+        for astroid in asteroids:
+            if astroid.collision(player) == True:
+                sys.exit()
+
 
         pygame.display.update()
         
