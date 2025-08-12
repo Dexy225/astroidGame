@@ -44,8 +44,6 @@ def main():
         clock.tick(60)
         dt = clock.tick(60) / 1000
 
-
-
         updatable.update(dt)
 
         for sprite in drawable:
@@ -58,10 +56,8 @@ def main():
         for astroid in asteroids:
             for bullet in bullets:
                 if astroid.collision(bullet) == True:
-                    astroid.kill()
                     bullet.kill()
-            
-
+                    astroid.split(asteroids)
 
         pygame.display.update()
         
